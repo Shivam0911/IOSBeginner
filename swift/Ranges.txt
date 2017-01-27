@@ -1,0 +1,19 @@
+let count = 3
+switch count{
+	
+	case Int.min..<0 : print("Negative count , really?")
+	case 0...5 : print("b/w 0 and 5")
+	
+	default : print("no value !!!")
+}
+func charType(_ car: Character) -> String {
+  switch car {
+    case "A", "E", "I", "O", "U", "Y", "a", "e", "i", "o", "u", "y":
+      return "Vowel"
+    case "A"..."Z", "a"..."z":
+      return "Consonant"
+    default:
+      return "Other"
+  }
+}
+print("Jules Verne".characters.map(charType))

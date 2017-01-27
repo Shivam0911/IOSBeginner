@@ -1,0 +1,72 @@
+var arr = [1,2,3,-1,-2,-3,0,0,0,2,4,5,]
+var frequencyCounter = (zero : 0,postive : 0, negative :0)
+let _ = arr.map{
+(eachElement) in
+ 	/*
+	if  eachElement > 0 { 
+		frequencyCounter.postive += 1
+	}
+	else if	eachElement == 0 { 
+		frequencyCounter.zero += 1 
+	}
+	else { 
+		frequencyCounter.negative += 1 
+	}
+	*/
+	var boolVar = true
+	switch boolVar {
+		case eachElement > 0 :  frequencyCounter.postive += 1
+		case eachElement == 0 : frequencyCounter.zero += 1
+		case eachElement < 0 :  frequencyCounter.negative += 1
+		default : print("Wrong Input")
+	
+	}
+	
+}
+print("No of Zeros Numbers = \(frequencyCounter.zero)")
+
+print("No of Positive Numbers = \(frequencyCounter.postive)")
+
+print("No of Negative Numbers = \(frequencyCounter.negative)")
+=========================================================================================
+var arr = [1,2,3,-1,-2,-3,0,0,0,2,4,5,]
+typealias frequencyCounter = (zero : Int,postive : Int, negative : Int)
+let seed = (zero : 0, postive : 0, negative :0)
+/*
+let isZero : (Int,Int) -> Int = { x,y in 
+		if y == 0 {
+				return x + 1 
+		}else {
+			return x
+		}
+}
+
+let isPositive : (Int,Int) -> Int = { x,y in 
+		if y > 0 {
+				return x + 1 
+		}else {
+			return x
+		}
+}
+
+let isNegative : (Int,Int) -> Int = { x,y in 
+		if y < 0 {
+				return x + 1 
+		}else {
+			return x
+		}
+}
+*/
+//let isType : (Int,(Int,Int,Int))
+let result = arr.reduce(seed){ (result : frequencyCounter ,number : Int) -> frequencyCounter in
+var boolVar = true
+	switch boolVar {
+		case number > 0 :  return (result.zero,result.postive + 1,result.negative)
+		case number == 0 : return (result.zero + 1,result.postive ,result.negative)		
+		case number < 0 :  return (result.zero,result.postive,result.negative + 1)
+		default : return (result.zero,result.postive,result.negative)
+	
+	}
+	
+}
+print(" \(result)")

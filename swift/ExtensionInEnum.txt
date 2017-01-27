@@ -1,0 +1,32 @@
+enum Media{
+	case book(title : String,author : String ,year : Int)
+	case movie(title : String,director : String ,year : Int)
+	case webSite(url : String,title : String)
+}
+extension Media {
+	var mediaTitle : String{
+	switch self {
+		
+		case .book(title : let aTitle,author : _,year : _):
+		return aTitle
+		case .movie(title : let aTitle,director : _,year : _):
+		return aTitle
+		default :return " "
+    	}		
+	}
+}
+extension Media{
+func checkAuthor(_ author : String) -> Bool{		
+			switch self {
+			case .book(title: _,author : author,year : _): return true
+			case .movie(title: _,director : author,year : _): return true
+			default : return false	
+			
+		}
+		
+	}
+	
+}
+let book = Media.book(title: "20,000 leagues under the sea ",author:"Julie", year : 1870)
+print(book.mediaTitle)
+print(book.checkAuthor("Julie"))

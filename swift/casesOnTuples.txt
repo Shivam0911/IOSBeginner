@@ -1,0 +1,15 @@
+let point =  (x : 7, y : 0)
+switch (point.x,point.y){
+	case(0,0) : print("on the Origin!")
+	case(0,_) : print("x = 0 on Y-axis!")
+	case(_,0) : print("y = 0 on X-axis!")
+	case (let x, let y) where x == y : print("On y=x")
+	default : print("quite a rnadom point")
+	
+}
+Cases are evaluated in order
+Also notice that the switch statement will evaluate its case patterns in the order they are defined, 
+and will stop at the first one which matches. Contrary to C and Objective-C, there is no need for a break keyword1.
+This means that in the code above, if the point is (0,0), 
+then it will match the first case and print "On the origin!",
+ but it will stop there, without matching with (0,_) nor with (_,0), even if those case patterns would otherwise match. Because it stops at the first match

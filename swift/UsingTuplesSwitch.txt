@@ -1,0 +1,24 @@
+enum Media{
+	case book(title : String ,author : String ,year : Int)
+	case movie(title : String ,director : String ,year : Int)
+	}
+
+
+
+extension Media {
+	
+	var mediaTitle : Bool{
+	switch self {
+		
+		case let .book(tuple):
+		print(tuple.year)
+		return true
+		case let .movie(_,_,year) where year > 1930:
+		return true
+		default :
+		return false
+    	}		
+	}
+}
+let book = Media.book(title: "20,000 leagues under the sea ",author:"Julie", year : 1870)
+print(book.mediaTitle)

@@ -1,0 +1,90 @@
+typealias JSONDictionary = [String: Any]
+//typealias keyValuePair = [ key : String , value : Any]
+let jsonData = [
+
+    "error_code": 200,
+    
+    "result": [
+        [
+            "comment_date": "2017-01-10 08:42:27",
+            "comment_text": "hi.....looking good..............",
+            "comment_video_id": 10,
+            "user_registration_type": "normal",
+            "comment_user_id": 197,
+            "media_image": "",
+            "user_full_name": "markus lenard",
+            "user_email": "mi@gmail.com",
+            "media_small_image": ""
+        ],
+        [
+            "comment_date": "2017-01-11 07:14:06",
+            "comment_text": "hi...david..how r u..........",
+            "comment_video_id": 12,
+            "user_registration_type": "normal",
+            "comment_user_id": 197,
+            "media_image": "",
+            "user_full_name": "markus lenard",
+            "user_email": "mi@gmail.com",
+            "media_small_image": ""
+        ],
+        [
+            "comment_date": "2017-01-11 05:52:48",
+            "comment_text": "hello.....................oooo",
+            "comment_video_id": 14,
+            "user_registration_type": "normal",
+            "comment_user_id": 197,
+            "media_image": "",
+            "user_full_name": "markus lenard",
+            "user_email": "mi@gmail.com",
+            "media_small_image": ""
+        ],
+        [
+            "comment_date": "2017-01-10 12:09:39",
+            "comment_text": "hello.....................oooo",
+            "comment_video_id": 15,
+            "user_registration_type": "normal",
+            "comment_user_id": 197,
+            "media_image": "",
+            "user_full_name": "markus lenard",
+            "user_email": "mi@gmail.com",
+            "media_small_image": ""
+        ],
+        [
+            "comment_date": "2017-01-10 08:26:43",
+            "comment_text": "hi.....looking so cute.........",
+            "comment_video_id": 16,
+            "user_registration_type": "normal",
+            "comment_user_id": 197,
+            "media_image": "",
+            "user_full_name": "markus lenard",
+            "user_email": "mi@gmail.com",
+            "media_small_image": ""
+        ],
+        [
+            "comment_date": "2017-01-11 07:59:41",
+            "comment_text": "hi...boss.how r u..........",
+            "comment_video_id": 18,
+            "user_registration_type": "normal",
+            "comment_user_id": 197,
+            "media_image": "",
+            "user_full_name": "markus lenard",
+            "user_email": "mi@gmail.com",
+            "media_small_image": ""
+        ]
+    ],
+    "error_string": "Comment fetch successfully"
+    ] as [String : Any]
+
+
+     let first = jsonData["error_code"] as? Int
+    
+  	 let second = jsonData["error_string"] as? String 
+    
+     let result = jsonData["result"] as! [JSONDictionary] 
+ 
+	let  username = result.filter(){( temp : [String:Any]) -> Bool in 
+		 	let id = temp["comment_video_id"] as! Int
+			print(id)
+			return id == 16
+}
+	print(username)
